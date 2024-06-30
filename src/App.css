@@ -525,6 +525,7 @@ a {
   background-color: var(--blanco);
   padding: 5rem;
   position: relative;
+  overflow-x: hidden;
 }
 
 .grilla.dark {
@@ -977,6 +978,7 @@ a {
   flex-direction: column;
   gap: 2rem;
   position: relative;
+  overflow-x: hidden;
 }
 
 .clientes.dark {
@@ -1544,6 +1546,8 @@ textarea {
   align-items: center;
   gap: 5rem;
   padding: 15rem 5rem 5rem 5rem;
+  overflow-x: hidden;
+  position: relative;
 }
 
 .mensaje-no-disponible {
@@ -1625,6 +1629,8 @@ textarea {
   align-items: center;
   gap: 5rem;
   padding: 15rem 5rem 5rem 5rem;
+  overflow-x: hidden;
+  position: relative;
 }
 
 .servicio-tele.dark {

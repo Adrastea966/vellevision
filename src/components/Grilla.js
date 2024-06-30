@@ -9,8 +9,8 @@ function Grilla() {
         process.env.PUBLIC_URL + '/img/cronicatv.png',
         process.env.PUBLIC_URL + '/img/canal26.png',
         process.env.PUBLIC_URL + '/img/cabal4local.png',
-        process.env.PUBLIC_URL + '/img/C5N.png',
-        process.env.PUBLIC_URL + '/img/TN.png',
+        process.env.PUBLIC_URL + '/img/c5n.png',
+        process.env.PUBLIC_URL + '/img/tn.png',
         process.env.PUBLIC_URL + '/img/tvpublica.png',
         process.env.PUBLIC_URL + '/img/encuentro.png',
         process.env.PUBLIC_URL + '/img/ln.png',
@@ -80,8 +80,8 @@ function Grilla() {
     //Imágenes para grilla digital
     const digitalGridImages = [
         process.env.PUBLIC_URL + '/img/canal26.png',
-        process.env.PUBLIC_URL + '/img/C5N.png',
-        process.env.PUBLIC_URL + '/img/TN.png',
+        process.env.PUBLIC_URL + '/img/c5n.png',
+        process.env.PUBLIC_URL + '/img/tn.png',
         process.env.PUBLIC_URL + '/img/america.png',
         process.env.PUBLIC_URL + '/img/a24.png',
         process.env.PUBLIC_URL + '/img/ln.png',
