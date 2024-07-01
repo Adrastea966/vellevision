@@ -1,4 +1,3 @@
-//Internet
 import React, { useEffect, useState } from 'react';
 import { useTheme } from '../ThemeContext';
 import NavbarInter from '../components/NavbarInter';
@@ -11,21 +10,35 @@ function ServicioInternet() {
     const [localidad, setLocalidad] = useState('');
 
     useEffect(() => {
-        let textWrapper = document.querySelector('.ml15 .letters');
-        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+        // Efecto inicial para las animaciones cuando se monta el componente
+        startAnimations();
+    }, []);
 
-        anime.timeline({ loop: false })
-            .add({
-                targets: '.ml15 .letter',
-                rotateY: [-90, 0],
-                duration: 1300,
-                delay: (el, i) => 45 * i
-            }).add({
-                targets: '.ml15',
-                duration: 1000,
-                easing: "easeOutExpo",
-                delay: 1000
-            });
+    useEffect(() => {
+        // Efecto para reiniciar las animaciones cuando la localidad cambia
+        if (localidad !== 'Dos de mayo') {
+            startAnimations();
+        }
+    }, [localidad]);
+
+    const startAnimations = () => {
+        let textWrapper = document.querySelector('.ml15 .letters');
+        if (textWrapper) {
+            textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+            anime.timeline({ loop: false })
+                .add({
+                    targets: '.ml15 .letter',
+                    rotateY: [-90, 0],
+                    duration: 1300,
+                    delay: (el, i) => 45 * i
+                }).add({
+                    targets: '.ml15',
+                    duration: 1000,
+                    easing: "easeOutExpo",
+                    delay: 1000
+                });
+        }
 
         // Animar los contadores
         const animateCounters = () => {
@@ -54,7 +67,7 @@ function ServicioInternet() {
         };
 
         animateBars();
-    }, []);
+    };
 
     const handleLocalidadChange = (e) => {
         setLocalidad(e.target.value);
