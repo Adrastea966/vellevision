@@ -133,9 +133,6 @@ function ServicioInternet() {
                                     <div className={`tele-tarjeta-top-2 ${theme}`}>
                                         <h4>Internet</h4>
                                     </div>
-                                    <div className={`cargador ${theme}`} >
-                                        <div className={`linea ${theme}`} data-width='40%'></div>
-                                    </div>
                                     <div className={`tele-tarjeta-medio ${theme}`}>
                                         <div className='tele-tarjeta-medio-canales'>
                                             <div className='div-canales'><span className={`tarjeta-medio-span-canales ${theme}`} data-end-value="50">0</span><span className={`div-canales-span ${theme}`} >Mbps de descarga</span></div>
@@ -152,9 +149,6 @@ function ServicioInternet() {
                                     </div>
                                     <div className={`tele-tarjeta-top-2 ${theme}`}>
                                         <h4>Internet</h4>
-                                    </div>
-                                    <div className={`cargador ${theme}`} >
-                                        <div className={`linea ${theme}`} data-width='50%'></div>
                                     </div>
                                     <div className={`tele-tarjeta-medio ${theme}`}>
                                         <div className='tele-tarjeta-medio-canales'>
@@ -173,9 +167,7 @@ function ServicioInternet() {
                                     <div className={`tele-tarjeta-top-2 ${theme}`}>
                                         <h4>Internet</h4>
                                     </div>
-                                    <div className={`cargador ${theme}`} >
-                                        <div className={`linea ${theme}`} data-width='100%'></div>
-                                    </div>
+
                                     <div className={`tele-tarjeta-medio ${theme}`}>
                                         <div className='tele-tarjeta-medio-canales'>
                                             <div className='div-canales'><span className={`tarjeta-medio-span-canales ${theme}`} data-end-value="300">0</span><span className={`div-canales-span ${theme}`}>Mbps de descarga</span></div>

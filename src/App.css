@@ -1891,33 +1891,6 @@ textarea {
   color: var(--blanco);
 }
 
-.cargador {
-  position: relative;
-  width: 80%;
-  height: 5px;
-  background-color: #ebebeb;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-top: 10px;
-  z-index: 2;
-}
-
-.cargador.dark {
-  background-color: var(--gris-oscuro-var3);
-}
-
-.cargador .linea {
-  height: 100%;
-  background-color: var(--principal-var2);
-  border-radius: 10px;
-  width: 0;
-  transition: width 2s ease-in-out;
-}
-
-.cargador .linea.dark {
-  background-color: var(--principal-var1);
-}
-
 .degrade7 {
   position: absolute;
   width: 250px;
@@ -2257,6 +2230,10 @@ textarea {
 
   .grilla-hd h3 {
     font-size: 1.2em;
+  }
+
+  .grilla-grid {
+    padding: 0 2rem 0 2rem;
   }
 
   .card {
