@@ -25,8 +25,8 @@ function App() {
               <>
                 <Navbar />
                 <Inicio />
-                <Grilla />
                 <Servicios />
+                <Grilla />
                 <Radio />
                 <Clientes />
                 <Contacto />

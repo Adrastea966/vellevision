@@ -1,4 +1,4 @@
-//Servicio Internet
+//Internet
 import React, { useEffect, useState } from 'react';
 import { useTheme } from '../ThemeContext';
 import NavbarInter from '../components/NavbarInter';
@@ -26,6 +26,34 @@ function ServicioInternet() {
                 easing: "easeOutExpo",
                 delay: 1000
             });
+
+        // Animar los contadores
+        const animateCounters = () => {
+            const targets = document.querySelectorAll('.tarjeta-medio-span-canales');
+            targets.forEach((target, index) => {
+                const endValue = parseInt(target.getAttribute('data-end-value'), 10);
+                anime({
+                    targets: target,
+                    innerHTML: [0, endValue],
+                    easing: 'linear',
+                    round: 1,
+                    duration: 2000
+                });
+            });
+        };
+
+        animateCounters();
+
+        // Animar las barras de carga
+        const animateBars = () => {
+            const bars = document.querySelectorAll('.cargador .linea');
+            bars.forEach((bar, index) => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width;
+            });
+        };
+
+        animateBars();
     }, []);
 
     const handleLocalidadChange = (e) => {
@@ -34,10 +62,10 @@ function ServicioInternet() {
 
     return (
         <>
-            <div className='servicio-tele-header'>
-                <div className='logo'></div>
+            <section className={`servicio-internet ${theme}`} id='servicio-internet'>
+                <div className='logo logo2'></div>
                 <NavbarInter />
-                <div className='toggle-container'>
+                <div className='toggle-container toggle2'>
                     <div className={`toggle ${theme}`}>
                         <button className={`sol ${theme === 'light' ? 'active' : ''}`} onClick={toggleTheme}>
                             <FiSun />
@@ -50,13 +78,10 @@ function ServicioInternet() {
                         <span className={`toggle-fondo ${theme}`}></span>
                     </div>
                 </div>
-            </div>
 
-            <section className={`servicio-internet ${theme}`} id='servicio-internet'>
                 <span className={`degrade7 ${theme}`}></span>
                 <span className={`degrade8 ${theme}`}></span>
                 <div className='servicio-tele-contenido'>
-
                     <div className={`tele-top ${theme}`}>
                         <div className='tele-top-titulo'>
                             <h1 className="ml15">
@@ -95,10 +120,12 @@ function ServicioInternet() {
                                     <div className={`tele-tarjeta-top-2 ${theme}`}>
                                         <h4>Internet</h4>
                                     </div>
+                                    <div className={`cargador ${theme}`} >
+                                        <div className={`linea ${theme}`} data-width='40%'></div>
+                                    </div>
                                     <div className={`tele-tarjeta-medio ${theme}`}>
-                                        <p>$Precio del plan</p>
                                         <div className='tele-tarjeta-medio-canales'>
-                                            <span className={`tarjeta-medio-span-canales ${theme}`}>50Mbps de descarga </span>
+                                            <div className='div-canales'><span className={`tarjeta-medio-span-canales ${theme}`} data-end-value="50">0</span><span className={`div-canales-span ${theme}`} >Mbps de descarga</span></div>
                                             <span className={`tarjeta-medio-span-calidad ${theme}`}>Hasta 10Mbps Subida</span>
                                         </div>
                                     </div>
@@ -113,10 +140,12 @@ function ServicioInternet() {
                                     <div className={`tele-tarjeta-top-2 ${theme}`}>
                                         <h4>Internet</h4>
                                     </div>
+                                    <div className={`cargador ${theme}`} >
+                                        <div className={`linea ${theme}`} data-width='50%'></div>
+                                    </div>
                                     <div className={`tele-tarjeta-medio ${theme}`}>
-                                        <p>$Precio del plan</p>
                                         <div className='tele-tarjeta-medio-canales'>
-                                            <span className={`tarjeta-medio-span-canales ${theme}`}>100Mbps de descarga</span>
+                                            <div className='div-canales'><span className={`tarjeta-medio-span-canales ${theme}`} data-end-value="100">0</span><span className={`div-canales-span ${theme}`}>Mbps de descarga</span></div>
                                             <span className={`tarjeta-medio-span-calidad ${theme}`}>Hasta 10Mbps Subida</span>
                                         </div>
                                     </div>
@@ -131,10 +160,12 @@ function ServicioInternet() {
                                     <div className={`tele-tarjeta-top-2 ${theme}`}>
                                         <h4>Internet</h4>
                                     </div>
+                                    <div className={`cargador ${theme}`} >
+                                        <div className={`linea ${theme}`} data-width='100%'></div>
+                                    </div>
                                     <div className={`tele-tarjeta-medio ${theme}`}>
-                                        <p>$Precio del plan</p>
                                         <div className='tele-tarjeta-medio-canales'>
-                                            <span className={`tarjeta-medio-span-canales ${theme}`}>300Mbps de descarga</span>
+                                            <div className='div-canales'><span className={`tarjeta-medio-span-canales ${theme}`} data-end-value="300">0</span><span className={`div-canales-span ${theme}`}>Mbps de descarga</span></div>
                                             <span className={`tarjeta-medio-span-calidad ${theme}`}>Hasta 10Mbps Subida</span>
                                         </div>
                                     </div>
@@ -145,7 +176,6 @@ function ServicioInternet() {
                             </>
                         )}
                     </div>
-
                 </div>
             </section>
             <Footer />

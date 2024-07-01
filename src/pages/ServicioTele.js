@@ -32,20 +32,21 @@ function ServicioTele() {
     const handleNavigation = (path) => {
         navigate(path);
         setTimeout(() => {
-          const elementId = path.startsWith('/#') ? path.slice(2) : path; // Remove leading '/#'
-          const element = document.getElementById(elementId);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-          }
+            const elementId = path.startsWith('/#') ? path.slice(2) : path;
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
         }, 100);
-      };
+    };
 
     return (
         <>
-            <div className='servicio-tele-header'>
-                <div className='logo'></div>
+            <section className={`servicio-tele ${theme}`} id='servicio-tele'>
+
+                <div className='logo logo2'></div>
                 <NavbarTele />
-                <div className='toggle-container'>
+                <div className='toggle-container toggle2 toggle-padding'>
                     <div className={`toggle ${theme}`}>
                         <button className={`sol ${theme === 'light' ? 'active' : ''}`} onClick={toggleTheme}>
                             <FiSun />
@@ -58,9 +59,6 @@ function ServicioTele() {
                         <span className={`toggle-fondo ${theme}`}></span>
                     </div>
                 </div>
-            </div>
-
-            <section className={`servicio-tele ${theme}`} id='servicio-tele'>
                 <span className={`degrade7 ${theme}`}></span>
                 <span className={`degrade8 ${theme}`}></span>
                 <div className='servicio-tele-contenido'>
@@ -73,7 +71,7 @@ function ServicioTele() {
                                 </span>
                             </h1>
                             <p>Dentro de nuestros servicios se encuentra la TV. Selecciona tu localidad para poder ver los planes correspondientes a tu zona.</p>
-                            <button className={`btn-grilla ${theme}`}><Link to='/#grilla' onClick={() => handleNavigation('/#grilla')}>Grilla<FaArrowRight/></Link></button>
+                            <button className={`btn-grilla ${theme}`}><Link to='/#grilla' onClick={() => handleNavigation('/#grilla')}>Grilla<FaArrowRight /></Link></button>
                         </div>
                     </div>
 
@@ -83,7 +81,6 @@ function ServicioTele() {
                                 <h4>Básico analógico</h4>
                             </div>
                             <div className={`tele-tarjeta-medio ${theme}`}>
-                                <p>$Precio del plan</p>
                                 <div className='tele-tarjeta-medio-canales'>
                                     <span className={`tarjeta-medio-span-canales ${theme}`}>+60 canales</span>
                                     <span className={`tarjeta-medio-span-calidad ${theme}`}>En calidad analógico</span>
@@ -98,7 +95,6 @@ function ServicioTele() {
                                 <h4>Plan Básico HD</h4>
                             </div>
                             <div className={`tele-tarjeta-medio ${theme}`}>
-                                <p>$Precio del plan</p>
                                 <div className='tele-tarjeta-medio-canales'>
                                     <span className={`tarjeta-medio-span-canales ${theme}`}>+80 canales</span>
                                     <span className={`tarjeta-medio-span-calidad ${theme}`}>Canales Digitales HD</span>

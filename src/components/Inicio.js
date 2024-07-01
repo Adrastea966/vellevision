@@ -76,7 +76,7 @@ function Inicio() {
 
       <div className={`scroll-down ${theme}`}>
         <button className={`btn-scroll ${theme}`}>
-          <a href="#grilla">
+          <a href="#servicios">
             <IoIosArrowDown />
           </a>
         </button>
