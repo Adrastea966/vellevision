@@ -368,6 +368,10 @@ a {
   background-color: var(--principal-var2);
 }
 
+.navbar-lista-item a {
+  cursor: pointer;
+}
+
 /* Navbar para pantallas pequeñas */
 .navbar-responsive {
   width: 50px;

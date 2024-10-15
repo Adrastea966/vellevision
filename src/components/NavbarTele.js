@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { React, useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTheme } from '../ThemeContext';
 import { FaArrowLeft } from "react-icons/fa6";
@@ -9,30 +9,11 @@ import { GrGroup } from "react-icons/gr";
 import { MdOutlineWorkOutline } from "react-icons/md";
 import { VscSend } from "react-icons/vsc";
 
-const NavbarTele = () => {
+const NavbarInter = () => {
   const [isSubMenu1Visible, setSubMenu1Visible] = useState(false);
   const [isNavResponsiveVisible, setNavResponsiveVisible] = useState(false);
   const { theme } = useTheme();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const listElements = document.querySelectorAll('.list-button-click');
-
-    listElements.forEach(listElement => {
-      const handleClick = () => {
-        listElement.classList.toggle('arrow');
-        const menu = listElement.nextElementSibling;
-        const height = menu.clientHeight === 0 ? menu.scrollHeight : 0;
-        menu.style.height = `${height}px`;
-      };
-
-      listElement.addEventListener('click', handleClick);
-
-      return () => {
-        listElement.removeEventListener('click', handleClick);
-      };
-    });
-  }, []);
 
   const handleArrowClick = () => {
     setNavResponsiveVisible(!isNavResponsiveVisible);
@@ -42,10 +23,22 @@ const NavbarTele = () => {
     setNavResponsiveVisible(false);
   };
 
+  const handleNavigationToGrilla = () => {
+    navigate('/', { state: { scrollToGrilla: true } });
+    setTimeout(() => {
+      const grillaSection = document.getElementById('grilla');
+      if (grillaSection) {
+        grillaSection.scrollIntoView({ behavior: 'smooth' });
+      }
+      window.history.replaceState(null, '', '/grilla');
+    }, 100);
+  };
+
+  // Función general para navegación con scroll
   const handleNavigation = (path) => {
     navigate(path);
     setTimeout(() => {
-      const elementId = path.startsWith('/#') ? path.slice(2) : path; // Remove leading '/#'
+      const elementId = path.startsWith('/#') ? path.slice(2) : path;  // Remueve el '/#' del path
       const element = document.getElementById(elementId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
@@ -61,7 +54,7 @@ const NavbarTele = () => {
             <Link to='/#inicio' onClick={() => handleNavigation('/#inicio')}>Inicio</Link>
           </li>
           <li className='navbar-lista-item'>
-            <Link to='/#grilla' onClick={() => handleNavigation('/#grilla')}>Grilla</Link>
+            <a onClick={handleNavigationToGrilla}>Grilla</a>
           </li>
           <li className='navbar-lista-item'>
             <Link to='/#clientes' onClick={() => handleNavigation('/#clientes')}>Clientes</Link>
@@ -98,7 +91,7 @@ const NavbarTele = () => {
           <li className="list-item">
             <div className="list-button">
               <RiFileList2Line className={`il uil-estate list-icon ${theme}`} />
-              <Link to="/#grilla" className={`nav-link ${theme}`} onClick={() => handleNavigation('/#grilla')}>Grilla</Link>
+              <a onClick={handleNavigationToGrilla}>Grilla</a>
             </div>
           </li>
           <li className="list-item">
@@ -134,4 +127,4 @@ const NavbarTele = () => {
   );
 };
 
-export default NavbarTele;
+export default NavbarInter;

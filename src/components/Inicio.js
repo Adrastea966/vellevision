@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
 import { IoIosArrowDown } from "react-icons/io";
@@ -56,6 +57,18 @@ function Inicio() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.scrollToGrilla) {
+      const grillaSection = document.getElementById('grilla');
+      if (grillaSection) {
+        grillaSection.scrollIntoView({ behavior: 'smooth' });
+        window.history.replaceState(null, '', '/grilla');  // Actualizar la URL
+      }
+    }
+  }, [location]);
 
   return (
     <div className={`contenedor inicio ${theme}`} id='inicio'>
